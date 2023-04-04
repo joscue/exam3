@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.main {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fmenu {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bmenu {
+    margin-left: 40px;
+    padding: 2px 5px;
+    box-shadow: 2px 3px rgb(49, 49, 49);
+}
+h2 {
+    margin: 30px 0px;
+}
+p {
+    font-size: 110%;
+}
+.mbody {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 55%;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+    <title>Magafeens</title>
+</head>
+<body class="main">
+    <div class="menu">
+        <div class="amenu">
+        </div>
+        <div class="fmenu">
+            <a href="http://localhost:5000/new">Add Magazine</a>
+            <a href="http://localhost:5000/user/account">Account</a>
+            <form action="/logout">
+                <button class="bmenu" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h1>{{magazine.name}}</h1>
+        <p>Added By {{magazine.creator.first_name}} {{magazine.creator.last_name}}</p>
+        <div class="adding">
+            <p>Description:</p>
+            <p class="indent">{{ magazine.description }}</p>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+    <title>Magafeens</title>
+</head>
+<body class="main">
+    <div class="menu">
+        <div class="amenu">
+        </div>
+        <div class="fmenu">
+            <a href="http://localhost:5000/dashboard">Dashboard</a>
+            <a href="http://localhost:5000/user/account">Account</a>
+            <form action="/logout">
+                <button class="bmenu" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+    <h1>Add a Magazine</h1>
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form class="form" action="/create/mag" method="POST">
+            <div class="category">
+                <p>Title:</p>
+                <textarea name="name" id="" cols="20" rows="1"></textarea>
+            </div>
+            <div class="category">
+                <p>Descripition:</p>
+                <textarea class="desc" name="description" id="" cols="20" rows="1"></textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

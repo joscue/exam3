@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>Magafeens</title>
+</head>
+<body class="main">
+    <div class="menu">
+        <h1>Welcome {{user.first_name}} {{user.last_name}}!</h1>
+        <div class="fmenu">
+            <a href="http://localhost:5000/new">Add Magazine</a>
+            <a href="http://localhost:5000/user/account">Account</a>
+            <form action="/logout">
+                <button class="bmenu" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+    <h2>Magazines</h2>
+    <div class="mbody">
+    {% for magazine in magazines %}
+        <div class="omag">
+            {% if session['user_id'] == magazine.user_id%}
+                <p><a href="http://localhost:5000/show/{{magazine.id}}">{{ magazine.name }}</a> added by you</p>
+            {% else %}
+                <p><a href="http://localhost:5000/show/{{magazine.id}}">{{ magazine.name }}</a>  added by {{magazine.creator.first_name}} </p>
+            {% endif %}
+        </div>
+        
+    {% endfor %}
+    </div>
+
+</body>
+</html>

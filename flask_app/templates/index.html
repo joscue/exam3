@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Magafeens</title>
+</head>
+<body class="main">
+    <div class="mreg">
+        <h2>Register</h2>
+        {% for message in get_flashed_messages(category_filter=['register']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <form action="/register" method="POST">
+            <p>First Name:</p>
+            <textarea name="fname" id="" cols="20" rows="1"></textarea>
+            <p>Last Name:</p>
+            <textarea name="lname" id="" cols="20" rows="1"></textarea>
+            <p>Email:</p>
+            <textarea name="eml" id="" cols="20" rows="1"></textarea>
+            <p>Password:</p>
+            <textarea name="pswd" id="" cols="20" rows="1"></textarea>
+            <p>Confirm:</p>
+            <textarea name="con" id="" cols="20" rows="1"></textarea>
+            <div>
+                <input class="button" type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+    <div class="mlog">
+        {% for message in get_flashed_messages(category_filter=['login']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <h2>Log in</h2>
+        <form action="/login" method="POST">
+            <p>Email:</p>
+            <textarea name="eml" id="" cols="20" rows="1"></textarea>
+            <p>Password:</p>
+            <textarea name="pswd" id="" cols="20" rows="1"></textarea>
+            <div>
+                <input class="button" type="submit" value="Log in">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
